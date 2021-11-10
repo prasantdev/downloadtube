@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());    
 app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: './' });
+    res.sendFile('./index.html', { root: './' });
 });
 
 app.get('/download', (req, res) => {
@@ -26,8 +26,7 @@ app.get('/download', (req, res) => {
         res.header("Content-Disposition", 'attachment;  filename="prasant_video.mp4');
         ytdl(url, { format: 'mp4' }).pipe(res);
     }
-    // res.header("Content-Disposition", 'attachment;\  filename="Video.mp4');    
-    // ytdl(url, {format: 'mp4'}).pipe(res);
+
 });
 
 app.listen(PORT, () => {
