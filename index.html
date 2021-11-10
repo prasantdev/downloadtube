@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YouTube Downloader</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+        #banner {
+            height: 100vh;
+            background-image: url('./static/bg-image.jpg');
+            background-size: cover;
+        }
+
+        #banner .container-fluid .jumbotron {
+            background: transparent;
+        }
+        footer{
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1rem;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+        <div class="container-fluid">
+            <div class="jumbotron text-center">
+                <h3>Prasant's YouTube Downloader</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <form action="http://localhost:3000/download/" method="GET">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="url"
+                                placeholder="https://www.youtube.com/watch?v=MtN1YnoL46Q" required />
+                        </div>
+                        <div class="form-group text-center">
+                            <select name="format" id="downloadFormat">
+                                <option value="mp4">Video (mp4)</option>
+                                <option value="mp3">Audio (mp3)</option>
+                            </select>
+                            <input class="btn btn-primary" type="submit" value="Download" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="text-center">
+            <span>
+                &copy; Website developed and background image captured by <a href="https://github.com/prasantdev">prasant</a>
+            </span>
+        </footer>
+    </div>
+</body>
+
+</html>
