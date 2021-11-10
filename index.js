@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());    
 app.get('/', (req, res) => {
-    res.sendFile('./index.html');
+    res.sendFile('index.html', { root: './' });
 });
 
 app.get('/download', (req, res) => {
