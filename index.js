@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.get('/download', (req, res) => {
     var url = req.query.url;
-    let formatDownload = req.query.format;
+    let formatDownload = req.query.format || 'mp4';
     if (formatDownload.toLowerCase() === 'mp3') {
         // cons
         // res.setHeader('Content-disposition', 'attachment; filename=prasant_music.mp3');
