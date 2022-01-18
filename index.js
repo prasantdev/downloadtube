@@ -6,7 +6,7 @@ app.use('/static', express.static('./static'));
 
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());    
+app.use(cors());
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
@@ -16,14 +16,16 @@ app.get('/download', (req, res) => {
     let formatDownload = req.query.format;
     if (formatDownload.toLowerCase() === 'mp3') {
         // cons
-        res.setHeader('Content-disposition', 'attachment; filename=prasant_music.mp3');
+        // res.setHeader('Content-disposition', 'attachment; filename=prasant_music.mp3');
+        res.setHeader('Content-Type', 'audio/mp3');
         ytdl(url, {
             filter: 'audioonly',
             format: 'mp3'
         })
             .pipe(res);
     } else {
-        res.header("Content-Disposition", 'attachment;  filename="prasant_video.mp4');
+        // res.header("Content-Disposition", 'attachment;  filename="prasant_video.mp4');
+        res.setHeader('Content-Type', 'video/mp4');
         ytdl(url, { format: 'mp4' }).pipe(res);
     }
 
