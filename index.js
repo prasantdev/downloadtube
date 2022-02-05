@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const ytdl = require('ytdl-core');
 const app = express();
-app.use('/static', express.static('./static'));
+// app.use('/static', express.static('./static'));
+app.use(express.static('./static'));
 
 const PORT = process.env.PORT || 3000;
 
