@@ -13,6 +13,8 @@ app.get('/', (req, res) => {
 
 app.get('/download', (req, res) => {
     var url = req.query.url;
+    let id = ytdl.getVideoID(url);
+    let format = ytdl.chooseFormat(ytdl.getInfo(id).formats, { quality: '134' });
     let formatDownload = req.query.format || 'mp4';
     if (formatDownload.toLowerCase() === 'mp3') {
         // cons
@@ -34,6 +36,7 @@ app.get('/download', (req, res) => {
 app.get('/get', (req, res) => {
     var url = req.query.url;
     let formatDownload = req.query.format || 'mp4';
+    let qualityDownload = req.query.quality || '18';
     if (formatDownload.toLowerCase() === 'mp3') {
         // cons
         // res.setHeader('Content-disposition', 'attachment; filename=prasant_music.mp3');
